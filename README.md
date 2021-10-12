@@ -7,13 +7,12 @@ You can find the online document [here](https://apidocs.toku.co/).
 
 
 ## Installation
-Download or clone from [github]https://github.com/cheefoong-toku/toku-caas-sdk-java
+Download or clone from [github](https://github.com/cheefoong-toku/toku-caas-sdk-java)
 
 ## Dependencies
 Download dependencies library:
-* Json library [here]https://code.google.com/archive/p/json-simple/downloads
+* Json library [here](https://code.google.com/archive/p/json-simple/downloads)
 
-	
 ## Quick Start - Call Handle
 #### Autoloading
 Require/include autoloading if your PHP framework does not handle autoloading.
