@@ -7,12 +7,12 @@ You can find the online document [here](https://apidocs.toku.co/).
 
 
 ## Installation
-You can install the SDK using composer:
+Download or clone from [github]https://github.com/cheefoong-toku/toku-caas-sdk-java
 
-    composer require toku/caas_sdk
-Use command below to regenerate the classes installed:
+## Dependencies
+Download dependencies library:
+* Json library [here]https://code.google.com/archive/p/json-simple/downloads
 
-	composer dump-autoload
 	
 ## Quick Start - Call Handle
 #### Autoloading
