@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Toku.CaaS.V1.Test;
 
 import java.io.IOException;
@@ -26,15 +21,7 @@ import java.util.ArrayList;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
-/**
- *
- * @author cheefoong
- */
-@WebServlet(name = "TestClass", urlPatterns = {"/test"})
-
-/*public class CallControl {
-    
-}*/
+@WebServlet(name = "TestClass", urlPatterns = {"/toku_caas_response_sample"})
 
 public class TestClass extends HttpServlet {
     
@@ -50,41 +37,18 @@ public class TestClass extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
 
-    public void PlayTTS(HttpServletRequest request, HttpServletResponse response, String message, String language, String voice, Map<String,String> extra) throws ServletException, IOException {
-        
-        debug.log(Level.SEVERE,"PlayTTS");
-        
-        try (PrintWriter out = response.getWriter()) {
-        
-            Map p=extra;
-            
-            p.put("X function", "PlayTTS");
-            p.put("message", message);
-            p.put("language", language);
-            p.put("voice", voice);
-
-            JSONObject json = new JSONObject(p);
-            
-            out.println("Json Output: " + json.toJSONString());
-
-        }
-
-    }
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        //response.setContentType("text/html;charset=UTF-8");
+
         response.setContentType("application/json");
         
         try (PrintWriter out = response.getWriter()) {
 
             HashMap<String,Object> extra = new HashMap<>();
-            //PlayTTS(request, response, "Test message", "en", "f", extra);
-            
+
             CallController callCtrl=new CallController(request, response);
             
-            extra.put("xx",0);
+            extra.put("ext",1);
             
             callCtrl.PrintAllParam();
             
