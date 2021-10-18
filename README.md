@@ -86,7 +86,7 @@ public class TestClass extends HttpServlet {
         
         try (PrintWriter out = response.getWriter()) {
             CallController callCtrl=new CallController(request, response);
-            callCtrl.PlayTTS("Test message 1", "en", "f", 0, null).Response();
+            callCtrl.PlayTTS("Test message", "en", CallController.VOICE_FEMALE, 0, false, 0, null, null).Response();
         }
         catch (Exception ex)
         {

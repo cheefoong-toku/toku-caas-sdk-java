@@ -23,6 +23,10 @@ import javax.script.ScriptEngineManager;
 
 @WebServlet(name = "TestClass", urlPatterns = {"/toku_caas_response_sample"})
 
+/*! Servlet Test Class */
+/*!
+ * Servlet test class, simply reponse play TTS JSON to the webhook.
+ */
 public class TestClass extends HttpServlet {
     
     private static final Logger debug = Logger.getLogger(TestClass.class.getName());
@@ -48,23 +52,14 @@ public class TestClass extends HttpServlet {
 
             CallController callCtrl=new CallController(request, response);
             
-            extra.put("ext",1);
+            extra.put("ext",1);//for testing only
             
             callCtrl.PrintAllParam();
             
             callCtrl.
-                    PlayTTS("Test message 1", "en", "f", 0, extra).
-                    PlayTTS("Test message 2", "en", "m", 0, null).
-                    PlaySystem("beep",0,null).
-                    PlayUrl("http://caasdemo.tokuapp.com/wav/gojek_17s_sample.wav",0,null).
-                    Sleep(1).
-                    MakeCall("6598192941",null, false, false, null).
-                    DropSession(180).
+                    PlayTTS("Test message", "en", CallController.VOICE_FEMALE, 0, false, 0, null, extra).
+                    MakeCall("[called_party]", "[calling_party]", false, false,"http://test.com", "GET", true, "AU", false, null).
                     Response();
-            
-            
-            //RequestDispatcher dispatcher = request.getRequestDispatcher("result.jsp");
-            //dispatcher.forward(request, response);
             
         }
         catch (Exception ex)
